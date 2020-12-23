@@ -1,17 +1,39 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center"> Movies </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large" class="ion-text-center">Movies</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-list>
+    <ion-card *ngFor="let movie of movies" button (click)="openMovie(movie)">
+      <ion-card-header>
+        
+          <img src="https://image.tmdb.org/t/p/w200{{movie.poster_path}}" [alt]="'movie.original_title'" />
+       
+        <ion-card-title>{{movie['original_title']}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{movie.release_date | date:'y'}} {{movie.vote_average}}/10
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <!-- [button] = 'true' -->
+<!--   <ion-item *ngFor="let user of users" button (click)="openUser(user)">
+    <ion-avatar slot="start">
+      <img [src]="user.picture.medium" [alt]="'user.name.first'" />
+    </ion-avatar>
+    <ion-label>
+      <h2>{{ user.name.first }} {{ user.name.last }}</h2>
+      <p>Né(e) le {{user.dob.date | date:'mediumDate'}}</p>
+    </ion-label>
+  </ion-item> -->
 </ion-content>
