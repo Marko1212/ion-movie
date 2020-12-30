@@ -1,26 +1,43 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">Populaires</ion-title>
+    <ion-title class="ion-text-center">Movies</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-card *ngFor="let movie of movies" button (click)="openMovie(movie)">
-      <ion-card-header>
-        <img
-          src="https://image.tmdb.org/t/p/w200{{movie.poster_path}}"
-          [alt]="'movie.original_title'"
-        />
+  <ion-title class="ion-margin-top"
+    ><h1><strong>Popular</strong></h1></ion-title
+  >
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let movie of movies">
+          <ion-card
+            button
+            (click)="openMovie(movie)"
+          >
+            <ion-card-header>
+              <img
+                width="100%" height="170px"
+                src="https://image.tmdb.org/t/p/w200{{movie.poster_path}}"
+                [alt]="'movie.original_title'"
+              />
+            </ion-card-header>
 
-        <ion-card-title>{{movie['original_title']}}</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        <span class="ion-float-left">{{movie.release_date | date:'y'}}</span><span class="ion-float-right">{{movie.vote_average}}/10</span>
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+            <ion-card-content>
+              <ion-item lines="none" class="ion-no-padding"
+                ><strong>{{movie['original_title']}}</strong></ion-item
+              >
+              <span class="ion-float-left"
+                >{{movie.release_date | date:'y'}}</span
+              ><span class="ion-float-right">{{movie.vote_average}}/10</span>
+              <div class="clear"></div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ 
 
   <!-- [button] = 'true' -->
   <!--   <ion-item *ngFor="let user of users" button (click)="openUser(user)">
