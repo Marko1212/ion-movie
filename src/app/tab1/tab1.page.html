@@ -17,7 +17,7 @@
       </ion-card-header>
 
       <ion-card-content>
-        {{movie.release_date | date:'y'}} {{movie.vote_average}}/10
+        <span class="ion-float-left">{{movie.release_date | date:'y'}}</span><span class="ion-float-right">{{movie.vote_average}}/10</span>
       </ion-card-content>
     </ion-card>
   </ion-list>
