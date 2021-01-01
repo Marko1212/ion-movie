@@ -1,14 +1,14 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar color="primary">
     <ion-title class="ion-text-center">Movies</ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-title class="ion-margin-top"
+      ><h1><strong>Popular</strong></h1></ion-title
+    >
+  </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-title class="ion-margin-top"
-    ><h1><strong>Popular</strong></h1></ion-title
-  >
-
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let movie of movies">
