@@ -1,13 +1,11 @@
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{movie.original_title}}</ion-title>
+    <ion-title><strong>{{movie.original_title}}</strong></ion-title>
   </ion-toolbar>
 </ion-header>
-
 
 <ion-content>
   <ion-card>
@@ -17,8 +15,20 @@
     />
     <!--l'attribut alt ne sert à rien sur les applis mobiles -->
 
-    
-  
-
+    <ion-card-content>
+      <ion-item lines="none" class="ion-no-padding"
+        ><strong>{{movie['original_title']}}</strong></ion-item
+      >
+      <p>
+        <span class="ion-float-left">{{movie.release_date | date:'y'}}</span
+        ><span class="ion-float-right"><strong>{{movie.vote_average}}</strong>/10</span>
+      </p>
+      
+      <br>
+      <span class="ion-float-right"><small>{{movie.vote_count}} votes</small></span>
+      <div class="clear"></div>
+      <br>
+      <p>{{movie.overview}}</p>
+    </ion-card-content>
   </ion-card>
 </ion-content>
